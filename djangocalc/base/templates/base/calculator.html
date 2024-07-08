@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Django Calculator</title>
+    <!--<link rel="stylesheet" type='text/css' media="screen" href="">-->
+  </head>
+
+  <body>
+    <section class="calculator">
+      <h1>Django Calculator App</h1>
+
+      <form action="{% url 'calculate' %}" method="POST">
+        {% csrf_token %}
+
+        <label for="number_one">First Number</label>
+        <input type="number" placeholder="First Number" name="number_one" id="number_one">
+
+        <label for="number_two">Second Number</label>
+        <input type="number" placeholder="Second Number" name="number_two" id="number_two">
+
+        <label for="operation">Operation</label>
+        <select name="operation" id="operation">
+          <option value="add">Add</option>
+          <option value="subtract">Subtract</option>
+          <option value="multiply">Multiply</option>
+          <option value="divide">Divide</option>
+        </select>
+        
+        <input type="submit" value="Calculate" id="calc_btn" class="btn">
+        
+        <h3>The result is: {{ result }}</h3>
+      </form>
+    </section>
+  </body>
+</html>
